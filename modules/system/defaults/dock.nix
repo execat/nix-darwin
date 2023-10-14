@@ -265,29 +265,30 @@ in {
     };
 
     system.defaults.dock.springboard-page-duration = mkOption {
-      type = types.nullOr types.float;
-      default = null;
+      type = types.float;
+      default = 0.5;
       description = lib.mdDoc ''
         Change springboard-page-duration. Default is 0.5
-        Set as 0 to disable animation
+        Set as 0.0 to disable animation
+        This setting requires `killall Dock` to reflect
       '';
     };
 
     system.defaults.dock.springboard-show-duration = mkOption {
-      type = types.nullOr types.float;
-      default = null;
+      type = types.float;
+      default = 0.25;
       description = lib.mdDoc ''
-        Change springboard-show-duration. Default is 0.5
-        Set as 0 to disable animation
+        Change springboard-show-duration. Default is 0.25
+        Set as 0.0 to disable animation
       '';
     };
 
     system.defaults.dock.springboard-hide-duration = mkOption {
-      type = types.nullOr types.float;
-      default = null;
+      type = types.float;
+      default = 0.25;
       description = lib.mdDoc ''
-        Change springboard-hide-duration. Default is 0.5
-        Set as 0 to disable animation
+        Change springboard-hide-duration. Default is 0.25
+        Set as 0.0 to disable animation
       '';
     };
   };
