@@ -112,13 +112,5 @@ with lib;
         Whether to warn on emptying trash. The default is true.
       '';
     };
-
-    system.defaults.finder.ShowRecentTags = mkOption {
-      type = types.nullOr types.bool;
-      default = null;
-      description = lib.mdDoc ''
-        Whether to show tags in sidebar for Finder. The default is true.
-      '';
-    };
   };
 }

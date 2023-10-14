@@ -264,5 +264,31 @@ in {
       '';
     };
 
+    system.defaults.dock.springboard-page-duration = mkOption {
+      type = types.nullOr types.float;
+      default = null;
+      description = lib.mdDoc ''
+        Change springboard-page-duration. Default is 0.5
+        Set as 0 to disable animation
+      '';
     };
+
+    system.defaults.dock.springboard-show-duration = mkOption {
+      type = types.nullOr types.float;
+      default = null;
+      description = lib.mdDoc ''
+        Change springboard-show-duration. Default is 0.5
+        Set as 0 to disable animation
+      '';
+    };
+
+    system.defaults.dock.springboard-hide-duration = mkOption {
+      type = types.nullOr types.float;
+      default = null;
+      description = lib.mdDoc ''
+        Change springboard-hide-duration. Default is 0.5
+        Set as 0 to disable animation
+      '';
+    };
+  };
 }
