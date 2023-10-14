@@ -88,5 +88,37 @@ with lib;
       '';
     };
 
+    system.defaults.finder.NewWindowTarget = mkOption {
+      type = types.nullOr types.str;
+      default = null;
+      description = lib.mdDoc ''
+        Set the target for a new window opened in Finder.
+        "PfDe" = Desktop, "PfDo" = Documents, "PfHm" = Home
+      '';
+    };
+
+    system.defaults.finder.DisableAllAnimations = mkOption {
+      type = types.nullOr types.bool;
+      default = null;
+      description = lib.mdDoc ''
+        Whether to disable animations. The default is false.
+      '';
+    };
+
+    system.defaults.finder.WarnOnEmptyTrash = mkOption {
+      type = types.nullOr types.bool;
+      default = null;
+      description = lib.mdDoc ''
+        Whether to warn on emptying trash. The default is true.
+      '';
+    };
+
+    system.defaults.finder.ShowRecentTags = mkOption {
+      type = types.nullOr types.bool;
+      default = null;
+      description = lib.mdDoc ''
+        Whether to show tags in sidebar for Finder. The default is true.
+      '';
+    };
   };
 }
