@@ -94,6 +94,8 @@ with lib;
       description = lib.mdDoc ''
         Set the target for a new window opened in Finder.
         "PfDe" = Desktop, "PfDo" = Documents, "PfHm" = Home
+
+        TODO: how to revert to Recents?
       '';
     };
 
