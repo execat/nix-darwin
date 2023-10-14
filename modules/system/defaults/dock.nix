@@ -268,7 +268,7 @@ in {
       type = types.float;
       default = 0.5;
       description = lib.mdDoc ''
-        Change springboard-page-duration. Default is 0.5
+        Change duration taken to switch page in Launchpad. Default is 0.5
         Set as 0.0 to disable animation
         This setting requires `killall Dock` to reflect
       '';
@@ -278,7 +278,7 @@ in {
       type = types.float;
       default = 0.25;
       description = lib.mdDoc ''
-        Change springboard-show-duration. Default is 0.25
+        Change duration taken to show Launchpad. Default is 0.25
         Set as 0.0 to disable animation
       '';
     };
@@ -287,7 +287,7 @@ in {
       type = types.float;
       default = 0.25;
       description = lib.mdDoc ''
-        Change springboard-hide-duration. Default is 0.25
+        Change duration taken to hide Launchpad. Default is 0.25
         Set as 0.0 to disable animation
       '';
     };
