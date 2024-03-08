@@ -1,9 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, options, pkgs, ... }:
 
 with lib;
 
 let
   cfg = config.programs.zsh;
+  opt = options.programs.zsh;
 
   zshVariables =
     mapAttrsToList (n: v: ''${n}="${v}"'') cfg.variables;
@@ -68,6 +69,19 @@ in
       type = types.bool;
       default = true;
       description = lib.mdDoc "Enable bash completion for all interactive zsh shells.";
+    };
+
+    programs.zsh.enableGlobalCompInit = mkOption {
+      type = types.bool;
+      default = cfg.enableCompletion;
+      defaultText = literalExpression "config.${opt.enableCompletion}";
+      description = lib.mdDoc ''
+        Enable execution of compinit call for all interactive zsh shells.
+
+        This option can be disabled if the user wants to extend its
+        `fpath` and a custom `compinit`
+        call in the local config is required.
+      '';
     };
 
     programs.zsh.enableFzfCompletion = mkOption {
@@ -175,7 +189,7 @@ in
 
       ${cfg.promptInit}
 
-      ${optionalString cfg.enableCompletion "autoload -U compinit && compinit"}
+      ${optionalString cfg.enableGlobalCompInit "autoload -U compinit && compinit"}
       ${optionalString cfg.enableBashCompletion "autoload -U bashcompinit && bashcompinit"}
 
       ${optionalString cfg.enableSyntaxHighlighting
@@ -203,6 +217,10 @@ in
       "c5a00c072c920f46216454978c44df044b2ec6d03409dc492c7bdcd92c94a110"  # official Nix installer
       "40b0d8751adae5b0100a4f863be5b75613a49f62706427e92604f7e04d2e2261"  # official Nix installer
       "2af1b563e389d11b76a651b446e858116d7a20370d9120a7e9f78991f3e5f336"  # DeterminateSystems installer
+    ];
+
+    environment.etc."zshenv".knownSha256Hashes = [
+      "d07015be6875f134976fce84c6c7a77b512079c1c5f9594dfa65c70b7968b65f"  # DeterminateSystems installer
     ];
 
   };
